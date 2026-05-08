@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($email) && !empty($password)) {
         echo "Login attempt for: ". htmlspecialchars($email);
     } else {
-        echo "Please fill in all fields"
+        echo "Please fill in all fields";
     }
 }
 ?>
