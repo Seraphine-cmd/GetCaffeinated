@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Caffeinated | About</title>
+    <title>Get Caffeinated | Reviews</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Assets/styles/Page.css">
     <link rel="stylesheet" href="../Assets/styles/ProfileMenu.css">
+    <script src="../Assets/scripts/Review.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -24,9 +25,9 @@
         <ul class="nav-links">
             <li><a href="../Pages/Home.html">Home</a></li>
             <li><a href="../Pages/Menu.html">Menu</a></li>
-            <li><a href="../Pages/About.html" class="active">About</a></li>
+            <li><a href="../Pages/About.html">About</a></li>
             <li><a href="../Pages/Contact.html">Contact</a></li>
-            <li><a href="../Pages/Review.html">Reviews</a></li>
+            <li><a href="../Pages/Review.html" class="active">Reviews</a></li>
         </ul>
 
         <a class="btn-order" href="../Pages/Menu.html">
@@ -50,58 +51,52 @@
     </nav>
 
     <main>
-        <header class="page-hero split-hero">
+        <header class="page-hero review-hero">
             <div class="page-hero-content">
-                <p class="eyebrow">Our story</p>
-                <h2>Built for better coffee breaks.</h2>
-                <p>Get Caffeinated is a neighborhood cafe concept in Barangay Caunayan, City of Batac, made for students, workers, friends, and anyone who needs a reliable cup and a calmer place to recharge.</p>
-                <a class="btn-dark" href="../Pages/Menu.html">Explore the menu</a>
-            </div>
-            <div class="hero-image-card">
-                <img src="../Assets/Images/About.jpg" alt="Coffee shop interior and preparation counter">
+                <p class="eyebrow">Customer feedback</p>
+                <h2>Rate your Get Caffeinated experience.</h2>
+                <p>Your review helps improve the menu, service, and cafe experience before and after launch.</p>
             </div>
         </header>
 
-        <section class="story-grid">
-            <article class="story-card large-card">
-                <span>What we serve</span>
-                <h3>Comfort drinks with focused flavor.</h3>
-                <p>Our menu brings together espresso classics, matcha favorites, ice blends, rice meals, waffles, starters, pastas, and desserts. Every item is designed to be simple, satisfying, and easy to enjoy any time of day.</p>
-            </article>
-            <article class="story-card">
-                <span>Our promise</span>
-                <h3>Fresh, balanced, consistent.</h3>
-                <p>We keep the cafe experience warm and approachable while paying attention to the small details that make every visit feel worth repeating.</p>
-            </article>
-            <article class="story-card dark-card">
-                <span>Location</span>
-                <h3>Batac, Ilocos Norte.</h3>
-                <p>Find us in Barangay Caunayan, under Three Jewels Tower. Opening updates and schedule changes will be shared through our contact channels.</p>
-            </article>
-        </section>
+        <section class="review-layout">
+            <form class="review-form" action="../php/submit_review.php" method="post">
+                <p class="eyebrow">Leave a review</p>
+                <h3>How did we do?</h3>
+                <p class="form-status" data-review-status hidden></p>
 
-        <section class="values-section">
-            <div>
-                <p class="eyebrow">Why choose us</p>
-                <h2>Good coffee, good pacing, good company.</h2>
-            </div>
-            <div class="value-list">
-                <article>
-                    <strong>01</strong>
-                    <h3>Study-friendly mood</h3>
-                    <p>A calm cafe atmosphere for focus sessions, quick breaks, and casual meetups.</p>
-                </article>
-                <article>
-                    <strong>02</strong>
-                    <h3>Menu for every craving</h3>
-                    <p>Coffee, matcha, meals, desserts, and comfort food in one place.</p>
-                </article>
-                <article>
-                    <strong>03</strong>
-                    <h3>Community-first service</h3>
-                    <p>Built around the local crowd, everyday routines, and repeat visits.</p>
-                </article>
-            </div>
+                <label for="customer_name">Name</label>
+                <input id="customer_name" name="customer_name" type="text" maxlength="100" placeholder="Your name" required>
+
+                <label for="customer_email">Email <span>(optional)</span></label>
+                <input id="customer_email" name="customer_email" type="email" maxlength="160" placeholder="you@example.com">
+
+                <fieldset class="rating-field">
+                    <legend>Rating</legend>
+                    <div class="rating-options" aria-label="Choose a rating from 0 to 5 stars">
+                        <label><input type="radio" name="rating" value="0" required><span>0 stars</span></label>
+                        <label><input type="radio" name="rating" value="1"><span>1 star</span></label>
+                        <label><input type="radio" name="rating" value="2"><span>2 stars</span></label>
+                        <label><input type="radio" name="rating" value="3"><span>3 stars</span></label>
+                        <label><input type="radio" name="rating" value="4"><span>4 stars</span></label>
+                        <label><input type="radio" name="rating" value="5"><span>5 stars</span></label>
+                    </div>
+                    <small>0 means poor, 5 means excellent.</small>
+                </fieldset>
+
+                <label for="feedback">Feedback</label>
+                <textarea id="feedback" name="feedback" rows="6" maxlength="1000" placeholder="Tell us what you liked or what we can improve." required></textarea>
+
+                <button type="submit">Submit review</button>
+                <p class="form-note">Reviews are stored securely in the site database.</p>
+            </form>
+
+            <aside class="review-card dark-card">
+                <span>What to include</span>
+                <h3>Be honest and specific.</h3>
+                <p>Mention the drink or meal you tried, how the service felt, and what would make your next visit better.</p>
+                <div class="star-row" aria-hidden="true">★★★★★</div>
+            </aside>
         </section>
     </main>
 

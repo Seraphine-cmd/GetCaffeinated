@@ -122,6 +122,9 @@ a {
 }
 
 .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,6 +150,7 @@ a {
 }
 
 .btn-order,
+.btn-cart,
 .btn-primary,
 .btn-secondary,
 .btn-dark {
@@ -163,10 +167,18 @@ a {
 }
 
 .btn-order {
+    margin-left: auto;
     padding: 0 18px;
     background: var(--coffee);
     color: var(--white);
     box-shadow: 0 14px 28px rgba(43, 23, 16, 0.18);
+}
+
+.btn-cart {
+    padding: 0 18px;
+    border: 1px solid rgba(79, 51, 38, 0.14);
+    background: rgba(255, 255, 255, 0.58);
+    color: var(--coffee);
 }
 
 .btn-order img {
@@ -176,6 +188,7 @@ a {
 }
 
 .btn-order:hover,
+.btn-cart:hover,
 .btn-primary:hover,
 .btn-secondary:hover,
 .btn-dark:hover {
@@ -297,21 +310,44 @@ a {
     text-transform: uppercase;
 }
 
-.hero-card h3 {
+.pick-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.pick-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.pick-item:first-child {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.pick-item h3 {
     margin-top: 8px;
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.42rem;
     line-height: 1;
 }
 
-.hero-card p {
-    margin: 14px 0;
+.pick-item p {
+    margin-top: 8px;
     color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
 }
 
-.hero-card strong {
+.pick-item strong {
+    flex: 0 0 auto;
+    margin-top: 8px;
     color: var(--gold);
-    font-size: 1.5rem;
+    font-size: 1.05rem;
 }
 
 .features-bar {
@@ -599,15 +635,17 @@ a {
     color: var(--white);
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1180px) {
     .navbar {
         flex-wrap: wrap;
     }
 
     .nav-links {
+        position: static;
+        transform: none;
         order: 3;
         width: 100%;
-        justify-content: flex-start;
+        justify-content: center;
         overflow-x: auto;
         padding-bottom: 2px;
     }
@@ -651,7 +689,8 @@ a {
         display: none;
     }
 
-    .btn-order {
+    .btn-order,
+    .btn-cart {
         min-height: 40px;
         padding: 0 14px;
         font-size: 0.8rem;

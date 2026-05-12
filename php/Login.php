@@ -1,33 +1,49 @@
 <?php
-include "db.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $password = $_POST['password'];
+require __DIR__ . '/db.php';
+require __DIR__ . '/auth.php';
 
-    if (!empty($email) && !empty($password)) {
-
-        $stmt = $conn->prepare("SELECT password FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->store_result();
-
-        if ($stmt->num_rows > 0) {
-            $stmt->bind_result($hashedPassword);
-            $stmt->fetch();
-
-            if (password_verify($password, $hashedPassword)) {
-                echo "Login successful!";
-            } else {
-                echo "Wrong password!";
-            }
-        } else {
-            echo "User not found!";
-        }
-
-        $stmt->close();
-    } else {
-        echo "Please fill in all fields";
-    }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: ../Pages/LoginPage.html');
+    exit;
 }
+
+$email = trim($_POST['email'] ?? '');
+$password = $_POST['password'] ?? '';
+
+if ($email === '' || $password === '') {
+    redirect_with_status('../Pages/LoginPage.html', 'invalid');
+}
+
+$stmt = $conn->prepare('SELECT id, name, password FROM users WHERE email = ? LIMIT 1');
+
+if (!$stmt) {
+    redirect_with_status('../Pages/LoginPage.html', 'error');
+}
+
+$stmt->bind_param('s', $email);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+if (!$user || !password_verify($password, $user['password'])) {
+    redirect_with_status('../Pages/LoginPage.html', 'invalid_login');
+}
+
+session_regenerate_id(true);
+$_SESSION['user_id'] = (int)$user['id'];
+$_SESSION['user_name'] = $user['name'];
+
+$visitStmt = $conn->prepare('INSERT INTO user_visits (user_id, visited_at, source) VALUES (?, NOW(), ?)');
+$source = 'login';
+$userId = (int)$user['id'];
+
+if ($visitStmt) {
+    $visitStmt->bind_param('is', $userId, $source);
+    $visitStmt->execute();
+    $visitStmt->close();
+}
+
+header('Location: ../Pages/Profile.php');
+exit;
 ?>

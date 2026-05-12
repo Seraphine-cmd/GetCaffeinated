@@ -3,80 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Caffeinated - Login</title>
-    <link rel="stylesheet" href="../Assets/styles/Login.css">
+    <title>Get Caffeinated | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Assets/styles/Auth.css">
+    <script src="../Assets/scripts/AuthStatus.js" defer></script>
 </head>
-
 <body>
-  <div class="container">
-    <div class="hero-section">
-      <img src="../Assets/Images/Hero.jpg" alt="Coffee Background" class="bg-img">
-      <div class="hero-overlay">
-        <div class="logo-area">
-          <img src="../Assets/Images/Logo.png" alt="Get Caffeinated Logo" class="logo-main">
-          <h1>Get Caffeinated</h1>
-          <p class="tagline">COFFEE. FOCUS. REPEAT</p>
-        </div>
-        
-        <div class="hero-footer">
-          <div class="footer-icon">
-            <img src="../Assets/Images/leaf.png" alt="Leaf Icon">
-          </div>
-          <div class="footer-text">
-            <h3>More than just coffee</h3>
-            <p>We're here to fuel your day, spark creativity, and bring people together.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-section">
-      <div class="form-wrapper">
-        <h2>Welcome Back</h2>
-        <p class="subtitle">Login to continue your coffee journey</p>
-
-        <form action="Login.php" method="POST" id="LoginForm">
-          <div class="input-group">
-            <label>Email Address</label>
-            <div class="input-field">
-              <img src="../Assets/Images/email.png" alt="Email Icon" class="icon">
-              <input type="email" name="email" placeholder="Enter your email" required>
+    <main class="auth-shell">
+        <section class="auth-visual">
+            <img src="../Assets/Images/Hero.jpg" alt="Coffee background">
+            <div class="auth-visual-overlay"></div>
+            <a href="../Pages/Home.html" class="brand-mark">
+                <img src="../Assets/Images/Logo.png" alt="Get Caffeinated logo">
+                <div>
+                    <h1>Get Caffeinated</h1>
+                    <p>Coffee. Focus. Repeat.</p>
+                </div>
+            </a>
+            <div class="auth-copy">
+                <p class="eyebrow">Welcome back</p>
+                <h2>Your coffee streak is waiting.</h2>
+                <p>Sign in to track visits, order history, and your Get Caffeinated activity.</p>
             </div>
-          </div>
+        </section>
 
-          <div class="input-group">
-            <label>Password</label>
-            <div class="input-field">
-              <img src="../Assets/Images/padlock.png" alt="Password Icon" class="icon">
-              <input type="password" name="password" placeholder="Enter your password" required>
+        <section class="auth-panel">
+            <div class="auth-card">
+                <p class="eyebrow">Login</p>
+                <h2>Continue your cafe journey.</h2>
+                <p class="form-status" data-auth-status hidden></p>
+
+                <form action="../php/login.php" method="post">
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" placeholder="Enter your password" required>
+
+                    <div class="form-row">
+                        <label class="inline-check"><input type="checkbox" name="remember"> Remember me</label>
+                        <a href="../Pages/ForgotPassword.html">Forgot password?</a>
+                    </div>
+
+                    <button type="submit">Login</button>
+                </form>
+
+                <p class="switch-link">No account yet? <a href="../Pages/Signup.html">Create one</a></p>
+                <a class="back-link" href="../Pages/Home.html">Back to home</a>
             </div>
-          </div>
-
-          <div class="form-options">
-            <label class="checkbox-container">
-              <input type="checkbox" name="remember">
-              <span class="checkmark"></span>
-              Remember Me
-            </label>
-
-              <a href="#" class="forgot-link">Forgot Password?</a>
-
-          </div>
-
-          <button type="submit" class="btn-login">Login</button>
-
-        </form>
-
-        <button class="btn-google">
-          <img src="../Assets/Images/google.png" alt="Google Icon">
-          Continue with Google
-        </button>
-
-        <p class="signup-text">Don't have an account? <a href="Signup.html">Sign up</a></p>
-      </div>
-    </div>
-  </div>
-
-  <script src="../Assets/scripts/Login.js"></script>
+        </section>
+    </main>
 </body>
 </html>

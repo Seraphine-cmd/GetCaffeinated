@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Assets/styles/Menu.css">
+    <link rel="stylesheet" href="../Assets/styles/ProfileMenu.css">
     <script src="../Assets/scripts/Menu.js" defer></script>
 </head>
 <body>
@@ -26,6 +27,7 @@
             <li><a href="../Pages/Menu.html" class="active">Menu</a></li>
             <li><a href="../Pages/About.html">About</a></li>
             <li><a href="../Pages/Contact.html">Contact</a></li>
+            <li><a href="../Pages/Review.html">Reviews</a></li>
         </ul>
 
         <a class="btn-order" href="#menu-list">
@@ -33,6 +35,20 @@
             <img src="../Assets/Images/shopping-bag.png" alt="">
             <span class="cart-count" data-cart-count>0</span>
         </a>
+
+        <a class="btn-cart" href="../Pages/Cart.html">View cart</a>
+
+        <details class="profile-menu">
+            <summary aria-label="Open profile menu"><span>GC</span></summary>
+            <div class="profile-popover">
+                <p class="profile-kicker">Account</p>
+                <a href="../Pages/Profile.php">Dashboard</a>
+                <a href="../Pages/EditProfile.php">Modify profile</a>
+                <a href="../Pages/Profile.php#orders">Orders & visits</a>
+                <a href="../Pages/EditProfile.php#settings">Settings</a>
+                <a class="danger-link" href="../php/logout.php">Logout</a>
+            </div>
+        </details>
     </nav>
 
     <main>
@@ -170,13 +186,15 @@
                 <li><a href="../Pages/Menu.html">Menu</a></li>
                 <li><a href="../Pages/About.html">About</a></li>
                 <li><a href="../Pages/Contact.html">Contact</a></li>
+                <li><a href="../Pages/Cart.html">Cart</a></li>
+                <li><a href="../Pages/Review.html">Reviews</a></li>
             </ul>
         </div>
 
         <div class="footer-column">
             <h4>Location</h4>
-            <p>Coming soon</p>
-            <p>Follow us for cafe opening updates.</p>
+            <p>Barangay Caunayan, City of Batac, Ilocos Norte</p>
+            <p>Under Three Jewels Tower.</p>
         </div>
 
         <div class="footer-column">

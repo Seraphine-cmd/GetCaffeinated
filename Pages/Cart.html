@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Caffeinated | About</title>
+    <title>Get Caffeinated | Cart</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Assets/styles/Page.css">
+    <link rel="stylesheet" href="../Assets/styles/Cart.css">
     <link rel="stylesheet" href="../Assets/styles/ProfileMenu.css">
+    <script src="../Assets/scripts/Cart.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -24,13 +25,13 @@
         <ul class="nav-links">
             <li><a href="../Pages/Home.html">Home</a></li>
             <li><a href="../Pages/Menu.html">Menu</a></li>
-            <li><a href="../Pages/About.html" class="active">About</a></li>
+            <li><a href="../Pages/About.html">About</a></li>
             <li><a href="../Pages/Contact.html">Contact</a></li>
             <li><a href="../Pages/Review.html">Reviews</a></li>
         </ul>
 
         <a class="btn-order" href="../Pages/Menu.html">
-            Order now
+            Add more
             <img src="../Assets/Images/shopping-bag.png" alt="">
         </a>
 
@@ -50,58 +51,51 @@
     </nav>
 
     <main>
-        <header class="page-hero split-hero">
-            <div class="page-hero-content">
-                <p class="eyebrow">Our story</p>
-                <h2>Built for better coffee breaks.</h2>
-                <p>Get Caffeinated is a neighborhood cafe concept in Barangay Caunayan, City of Batac, made for students, workers, friends, and anyone who needs a reliable cup and a calmer place to recharge.</p>
-                <a class="btn-dark" href="../Pages/Menu.html">Explore the menu</a>
-            </div>
-            <div class="hero-image-card">
-                <img src="../Assets/Images/About.jpg" alt="Coffee shop interior and preparation counter">
+        <header class="cart-hero">
+            <div>
+                <p class="eyebrow">Your order</p>
+                <h2>Review your caffeine picks.</h2>
+                <p>Check your selected items before ordering. Your cart is saved on this browser.</p>
             </div>
         </header>
 
-        <section class="story-grid">
-            <article class="story-card large-card">
-                <span>What we serve</span>
-                <h3>Comfort drinks with focused flavor.</h3>
-                <p>Our menu brings together espresso classics, matcha favorites, ice blends, rice meals, waffles, starters, pastas, and desserts. Every item is designed to be simple, satisfying, and easy to enjoy any time of day.</p>
-            </article>
-            <article class="story-card">
-                <span>Our promise</span>
-                <h3>Fresh, balanced, consistent.</h3>
-                <p>We keep the cafe experience warm and approachable while paying attention to the small details that make every visit feel worth repeating.</p>
-            </article>
-            <article class="story-card dark-card">
-                <span>Location</span>
-                <h3>Batac, Ilocos Norte.</h3>
-                <p>Find us in Barangay Caunayan, under Three Jewels Tower. Opening updates and schedule changes will be shared through our contact channels.</p>
-            </article>
-        </section>
+        <section class="cart-layout" aria-label="Shopping cart">
+            <div class="cart-panel">
+                <div class="cart-panel-heading">
+                    <div>
+                        <p class="eyebrow">Cart items</p>
+                        <h3>Selected menu</h3>
+                    </div>
+                    <button class="clear-cart" type="button" data-clear-cart>Clear cart</button>
+                </div>
 
-        <section class="values-section">
-            <div>
-                <p class="eyebrow">Why choose us</p>
-                <h2>Good coffee, good pacing, good company.</h2>
+                <div class="cart-items" data-cart-items></div>
+
+                <div class="empty-cart" data-empty-cart hidden>
+                    <img src="../Assets/Images/shopping-bag.png" alt="">
+                    <h3>Your cart is empty</h3>
+                    <p>Add drinks or meals from the menu to see them here.</p>
+                    <a href="../Pages/Menu.html">Browse menu</a>
+                </div>
             </div>
-            <div class="value-list">
-                <article>
-                    <strong>01</strong>
-                    <h3>Study-friendly mood</h3>
-                    <p>A calm cafe atmosphere for focus sessions, quick breaks, and casual meetups.</p>
-                </article>
-                <article>
-                    <strong>02</strong>
-                    <h3>Menu for every craving</h3>
-                    <p>Coffee, matcha, meals, desserts, and comfort food in one place.</p>
-                </article>
-                <article>
-                    <strong>03</strong>
-                    <h3>Community-first service</h3>
-                    <p>Built around the local crowd, everyday routines, and repeat visits.</p>
-                </article>
-            </div>
+
+            <aside class="summary-card">
+                <p class="eyebrow">Summary</p>
+                <div class="summary-line">
+                    <span>Items</span>
+                    <strong data-summary-items>0</strong>
+                </div>
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <strong data-summary-subtotal>0.00</strong>
+                </div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <strong data-summary-total>0.00</strong>
+                </div>
+                <button class="checkout-btn" type="button" data-checkout>Checkout</button>
+                <p class="summary-note">Checkout is a demo action for now.</p>
+            </aside>
         </section>
     </main>
 
@@ -111,6 +105,7 @@
             <h3>Get Caffeinated</h3>
             <p>Coffee. Focus. Repeat.</p>
         </div>
+
         <div class="footer-column">
             <h4>Quick Links</h4>
             <ul>
@@ -121,11 +116,13 @@
                 <li><a href="../Pages/Review.html">Reviews</a></li>
             </ul>
         </div>
+
         <div class="footer-column">
             <h4>Location</h4>
             <p>Barangay Caunayan, City of Batac, Ilocos Norte</p>
             <p>Under Three Jewels Tower.</p>
         </div>
+
         <div class="footer-column">
             <h4>Hours</h4>
             <p><strong>Monday - Friday</strong><br>7:00 AM - 9:00 PM</p>

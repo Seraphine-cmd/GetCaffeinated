@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Caffeinated | Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Assets/styles/Page.css">
+    <link rel="stylesheet" href="../Assets/styles/ProfileMenu.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../Pages/Home.html" class="logo-container" aria-label="Get Caffeinated home">
+            <img src="../Assets/Images/Logo.png" class="logo" alt="Get Caffeinated logo">
+            <div class="logo-text">
+                <h1>Get Caffeinated</h1>
+                <p>Coffee. Focus. Repeat.</p>
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="../Pages/Home.html">Home</a></li>
+            <li><a href="../Pages/Menu.html">Menu</a></li>
+            <li><a href="../Pages/About.html">About</a></li>
+            <li><a href="../Pages/Contact.html" class="active">Contact</a></li>
+            <li><a href="../Pages/Review.html">Reviews</a></li>
+        </ul>
+
+        <a class="btn-order" href="../Pages/Menu.html">
+            Order now
+            <img src="../Assets/Images/shopping-bag.png" alt="">
+        </a>
+
+        <a class="btn-cart" href="../Pages/Cart.html">View cart</a>
+
+        <details class="profile-menu">
+            <summary aria-label="Open profile menu"><span>GC</span></summary>
+            <div class="profile-popover">
+                <p class="profile-kicker">Account</p>
+                <a href="../Pages/Profile.php">Dashboard</a>
+                <a href="../Pages/EditProfile.php">Modify profile</a>
+                <a href="../Pages/Profile.php#orders">Orders & visits</a>
+                <a href="../Pages/EditProfile.php#settings">Settings</a>
+                <a class="danger-link" href="../php/logout.php">Logout</a>
+            </div>
+        </details>
+    </nav>
+
+    <main>
+        <header class="page-hero contact-hero">
+            <div class="page-hero-content">
+                <p class="eyebrow">Contact us</p>
+                <h2>Questions, visits, and cafe updates.</h2>
+                <p>Reach out for store updates, menu questions, collaborations, or feedback. We will keep this page ready for launch announcements and customer support.</p>
+            </div>
+        </header>
+
+        <section class="contact-layout">
+            <div class="contact-panel">
+                <p class="eyebrow">Send a message</p>
+                <h3>Tell us what you need.</h3>
+                <form class="contact-form" action="mailto:getcaffeinated@example.com" method="post" enctype="text/plain">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" placeholder="Your name" required>
+
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="How can we help?" required></textarea>
+
+                    <button type="submit">Send message</button>
+                </form>
+            </div>
+
+            <aside class="info-stack">
+                <article class="info-card dark-card">
+                    <span>Visit</span>
+                    <h3>Barangay Caunayan</h3>
+                    <p>City of Batac, Ilocos Norte. Under Three Jewels Tower.</p>
+                </article>
+                <article class="info-card">
+                    <span>Hours</span>
+                    <h3>Open daily soon</h3>
+                    <p>Monday to Friday, 7:00 AM - 9:00 PM. Weekends, 8:00 AM - 8:00 PM.</p>
+                </article>
+                <article class="info-card">
+                    <span>Feedback</span>
+                    <h3>Help us improve</h3>
+                    <p>Already tried our drinks? Leave a customer review and rate your experience.</p>
+                    <a href="../Pages/Review.html">Write a review</a>
+                </article>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-brand">
+            <img src="../Assets/Images/Logo.png" alt="Get Caffeinated logo">
+            <h3>Get Caffeinated</h3>
+            <p>Coffee. Focus. Repeat.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="../Pages/Home.html">Home</a></li>
+                <li><a href="../Pages/Menu.html">Menu</a></li>
+                <li><a href="../Pages/About.html">About</a></li>
+                <li><a href="../Pages/Contact.html">Contact</a></li>
+                <li><a href="../Pages/Review.html">Reviews</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Location</h4>
+            <p>Barangay Caunayan, City of Batac, Ilocos Norte</p>
+            <p>Under Three Jewels Tower.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Hours</h4>
+            <p><strong>Monday - Friday</strong><br>7:00 AM - 9:00 PM</p>
+            <p><strong>Saturday - Sunday</strong><br>8:00 AM - 8:00 PM</p>
+        </div>
+    </footer>
+</body>
+</html>
